@@ -5,10 +5,19 @@
 <title>To-Do List</title>
 
 <div class="header">
-    <div class="welcome-message">Welcome, {{auth()->user()->name}}</div>
+    @if (Auth::check())
+    <div class="welcome-message auth-margin-right">Welcome, {{auth()->user()->name}}</div>
     <div class="logout-container">
         <a href="/logout" class="logout-link">Logout</a>
     </div>
+    @else
+        <div class="auth-container auth-margin-right">
+            <a href="/register" class="auth-link">Register</a>
+        </div>
+        <div class="auth-container">
+            <a href="/login" class="auth-link">Login</a>
+        </div>
+    @endif
 </div>
 <h1 class="display-4">To-Do List</h1>
 <div class="tablet">

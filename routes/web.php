@@ -23,7 +23,7 @@ Route::get('/', [
 // To create a task
 Route::post('/create', [
     TodoController::class, 'store'
-]);
+])->middleware('auth');
 
 Route::delete('/delete/{task}', [
     TodoController::class, 'destroy'
@@ -36,7 +36,7 @@ Route::put('/completed/{task}', [
 
 Route::get('/login', [
     UserController::class, 'login'
-]);
+])->name('login');
 
 Route::get('/register', [
     UserController::class, 'register'

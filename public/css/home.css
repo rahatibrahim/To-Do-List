@@ -176,19 +176,22 @@ h1 {
 }
 
 .welcome-message {
-    margin-right: 20px;
     color: white;
 }
 
-.logout-container {
+.auth-container {
     align-self: flex-end;
 }
 
-.logout-link {
+.auth-link {
     color: white;
     text-decoration: none;
 }
 
-.logout-link:hover {
+.auth-link:hover {
     color: aqua;
+}
+
+.auth-margin-right {
+    margin-right: 20px;
 }

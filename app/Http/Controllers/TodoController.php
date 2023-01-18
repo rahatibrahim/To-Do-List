@@ -10,10 +10,10 @@ class TodoController extends Controller
 {
     public function index()
     {
-        if (!Auth::check())
-        {
-            return redirect('/login');
-        }
+//        if (!Auth::check())
+//        {
+//            return redirect('/login');
+//        }
 
         return view('home', [
             'tasks' => Todo::all()

@@ -146,3 +146,49 @@ h1 {
 .col-4 {
     padding-top: 4px;
 }
+
+/*.logout-container {*/
+/*    position: absolute;*/
+/*    top: 2em;*/
+/*    right: 2em;*/
+/*}*/
+
+/*.logout-link {*/
+/*    font-size: 18px;*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    padding: 10px 20px;*/
+/*}*/
+
+/*.logout-link:hover {*/
+/*    color: aqua;*/
+/*}*/
+
+.header {
+    position: absolute;
+    top: 1.5em;
+    right: 2em;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.welcome-message {
+    margin-right: 20px;
+    color: white;
+}
+
+.logout-container {
+    align-self: flex-end;
+}
+
+.logout-link {
+    color: white;
+    text-decoration: none;
+}
+
+.logout-link:hover {
+    color: aqua;
+}

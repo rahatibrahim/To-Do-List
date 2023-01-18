@@ -108,3 +108,13 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 1.1rem;
 }
+
+a {
+    color: aqua;
+}
+
+.errormessage {
+    color: #e17070;
+    font-size: smaller;
+    margin-bottom: 1em;
+}

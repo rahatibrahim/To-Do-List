@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
     public function index()
     {
+        if (!Auth::check())
+        {
+            return redirect('/login');
+        }
+
         return view('home', [
             'tasks' => Todo::all()
         ]);

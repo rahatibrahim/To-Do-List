@@ -3,6 +3,13 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 <title>To-Do List</title>
+
+<div class="header">
+    <div class="welcome-message">Welcome, {{auth()->user()->name}}</div>
+    <div class="logout-container">
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</div>
 <h1 class="display-4">To-Do List</h1>
 <div class="tablet">
     <div id="newtask">

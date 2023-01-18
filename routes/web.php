@@ -20,6 +20,7 @@ Route::get('/', [
     TodoController::class, 'index'
 ]);
 
+// To create a task
 Route::post('/create', [
     TodoController::class, 'store'
 ]);
@@ -28,10 +29,27 @@ Route::delete('/delete/{task}', [
     TodoController::class, 'destroy'
 ]);
 
+// To set a task as completed or uncompleted
 Route::put('/completed/{task}', [
     TodoController::class, 'complete'
 ]);
 
 Route::get('/login', [
     UserController::class, 'login'
+]);
+
+Route::get('/register', [
+    UserController::class, 'register'
+]);
+
+Route::post('/user/create', [
+    UserController::class, 'createUser'
+]);
+
+Route::get('/logout', [
+    UserController::class, 'logout'
+]);
+
+Route::post('/user/authenticate', [
+    UserController::class, 'authenticate'
 ]);

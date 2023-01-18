@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,8 @@ Route::delete('/delete/{task}', [
 
 Route::put('/completed/{task}', [
     TodoController::class, 'complete'
+]);
+
+Route::get('/login', [
+    UserController::class, 'login'
 ]);

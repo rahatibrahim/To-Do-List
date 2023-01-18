@@ -1,29 +1,29 @@
-<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+<link href="<?php echo e(asset('css/home.css')); ?>" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 <title>To-Do List</title>
 
 <div class="header">
-    @if (Auth::check())
-    <div class="welcome-message auth-margin-right">Welcome, {{auth()->user()->name}}</div>
+    <?php if(Auth::check()): ?>
+    <div class="welcome-message auth-margin-right">Welcome, <?php echo e(auth()->user()->name); ?></div>
     <div class="auth-container">
         <a href="/logout" class="auth-link">Logout</a>
     </div>
-    @else
+    <?php else: ?>
         <div class="auth-container auth-margin-right">
             <a href="/register" class="auth-link">Register</a>
         </div>
         <div class="auth-container">
             <a href="/login" class="auth-link">Login</a>
         </div>
-    @endif
+    <?php endif; ?>
 </div>
 <h1 class="display-4">To-Do List</h1>
 <div class="tablet">
     <div id="newtask">
         <form method="POST" action="/create">
-            @csrf
+            <?php echo csrf_field(); ?>
             <label for="title">
                 <input type="text" placeholder="Add Tasks" name="title" required>
             </label>
@@ -31,30 +31,31 @@
         </form>
     </div>
     <div id="tasks">
-        @foreach ($tasks as $task)
-            <div class={{ $task->completed ? 'task-active' : 'task' }}>
+        <?php $__currentLoopData = $tasks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $task): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class=<?php echo e($task->completed ? 'task-active' : 'task'); ?>>
                 <div class="row justify-content-between">
-                    <div class="col-4"><span id="taskname">{{ $task->title }}
+                    <div class="col-4"><span id="taskname"><?php echo e($task->title); ?>
+
                     </span></div>
                     <div class="col-3">
-                        <form method="POST" action="/completed/{{ $task->id }}">
-                            @csrf
-                            @method("PUT")
+                        <form method="POST" action="/completed/<?php echo e($task->id); ?>">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field("PUT"); ?>
                             <button type="submit" class="btn btn-primary" id="toggle-button">
-                                <img src="{{ asset('images/checkmark.png') }}" alt="Button" width="20">
+                                <img src="<?php echo e(asset('images/checkmark.png')); ?>" alt="Button" width="20">
                             </button>
                         </form>
-                        <form method="POST" action="/delete/{{ $task->id }}">
-                            @csrf
-                            @method("DELETE")
+                        <form method="POST" action="/delete/<?php echo e($task->id); ?>">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field("DELETE"); ?>
                             <button type="submit" class="btn btn-danger">
-                                <img src="{{ asset('images/delete_icon.png') }}" alt="Button" width="20">
+                                <img src="<?php echo e(asset('images/delete_icon.png')); ?>" alt="Button" width="20">
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
 
@@ -67,3 +68,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
+<?php /**PATH C:\Users\user\Documents\WorkSpace\Laravel\To-Do-List\resources\views/home.blade.php ENDPATH**/ ?>

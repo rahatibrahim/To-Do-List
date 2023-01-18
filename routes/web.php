@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [
     TodoController::class, 'index'
-]);
+])->name('home');
 
 // To create a task
 Route::post('/create', [
@@ -27,12 +27,12 @@ Route::post('/create', [
 
 Route::delete('/delete/{task}', [
     TodoController::class, 'destroy'
-]);
+])->middleware('auth');
 
 // To set a task as completed or uncompleted
 Route::put('/completed/{task}', [
     TodoController::class, 'complete'
-]);
+])->middleware('auth');
 
 Route::get('/login', [
     UserController::class, 'login'

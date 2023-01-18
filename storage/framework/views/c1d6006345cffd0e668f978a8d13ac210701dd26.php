@@ -1,4 +1,4 @@
-<link href="{{ asset('css/form.css') }}" rel="stylesheet">
+<link href="<?php echo e(asset('css/form.css')); ?>" rel="stylesheet">
 
 <title>Log in</title>
 
@@ -9,22 +9,24 @@
 </div>
 <h1 id="title" class="text-center">Log in</h1>
 <form id="survey-form" method="post" action="/user/authenticate">
-    @csrf
+    <?php echo csrf_field(); ?>
     <fieldset>
         <label id="email-label" for="email">Email
             <input name="email" type="email" class="form-control" placeholder="Enter your email" required
-                   value="{{old('email')}}"/>
+                   value="<?php echo e(old('email')); ?>"/>
         </label>
         <label id="password-label" for="password">Password
             <input name="password" type="password" class="form-control" placeholder="Enter your password" required
                    value=""/>
-            @if($errors->has('message'))
+            <?php if($errors->has('message')): ?>
                 <div class="errormessage">
-                    {{ $errors->first('message') }}
+                    <?php echo e($errors->first('message')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
         </label>
     </fieldset>
     <input id="submit" type="submit" value="Login"/>
 </form>
 <p class="text-center">Don't have an account yet! <a href="/register">Register</a> for an account.</p>
+<?php /**PATH C:\Users\user\Documents\WorkSpace\Laravel\To-Do-List\resources\views/login.blade.php ENDPATH**/ ?>

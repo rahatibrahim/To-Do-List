@@ -40,8 +40,12 @@
                         <form method="POST" action="/completed/{{ $task->id }}">
                             @csrf
                             @method("PUT")
-                            <button type="submit" class="btn btn-primary" id="toggle-button">
-                                <img src="{{ asset('images/checkmark.png') }}" alt="Button" width="20">
+                            <button type="submit" class="btn btn-primary">
+                                @if ($task->completed == 0)
+                                    <img src="{{ asset('images/checkmark.png') }}" alt="Button" width="20">
+                                @else
+                                    <img src="{{ asset('images/crossmark.png') }}" alt="Button" width="20">
+                                @endif
                             </button>
                         </form>
                         <form method="POST" action="/delete/{{ $task->id }}">
@@ -56,9 +60,9 @@
             </div>
         @endforeach
     </div>
-    <div class="pagination">
-        {{ $tasks->links('vendor.pagination.bootstrap-4') }}
-    </div>
+    {{--    <div class="pagination">--}}
+    {{--        {{ $tasks->links('vendor.pagination.bootstrap-4') }}--}}
+    {{--    </div>--}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

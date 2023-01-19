@@ -17,8 +17,12 @@ class TodoController extends Controller
             ]);
         }
 
+        $pendingTasks = Todo::where('user_id', Auth::user()->id)->where('completed', 0)->get();
+        $completedTasks = Todo::where('user_id', Auth::user()->id)->where('completed', 1)->get();
+        $tasks = $pendingTasks->concat($completedTasks)->sortBy('completed');
+
         return view('home')->with([
-            'tasks' => Todo::where('user_id', Auth::user()->id)->paginate(5)
+            'tasks' => $tasks
         ]);
     }
 

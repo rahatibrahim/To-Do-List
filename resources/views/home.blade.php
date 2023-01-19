@@ -6,10 +6,10 @@
 
 <div class="header">
     @if (Auth::check())
-    <div class="welcome-message auth-margin-right">Welcome, {{auth()->user()->name}}</div>
-    <div class="auth-container">
-        <a href="/logout" class="auth-link">Logout</a>
-    </div>
+        <div class="welcome-message auth-margin-right">Welcome, {{auth()->user()->name}}</div>
+        <div class="auth-container">
+            <a href="/logout" class="auth-link">Logout</a>
+        </div>
     @else
         <div class="auth-container auth-margin-right">
             <a href="/register" class="auth-link">Register</a>
@@ -55,6 +55,9 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="pagination">
+        {{ $tasks->links('vendor.pagination.bootstrap-4') }}
     </div>
 </div>
 

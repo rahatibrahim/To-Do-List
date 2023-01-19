@@ -195,3 +195,9 @@ h1 {
 .auth-margin-right {
     margin-right: 20px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

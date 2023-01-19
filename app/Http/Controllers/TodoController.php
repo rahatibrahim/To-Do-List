@@ -17,8 +17,8 @@ class TodoController extends Controller
             ]);
         }
 
-        return view('home', [
-            'tasks' => Todo::where('user_id', Auth::user()->id)->get()
+        return view('home')->with([
+            'tasks' => Todo::where('user_id', Auth::user()->id)->paginate(5)
         ]);
     }
 

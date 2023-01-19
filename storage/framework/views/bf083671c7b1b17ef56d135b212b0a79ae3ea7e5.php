@@ -4,7 +4,7 @@
 
 <div class="header">
     <div class="home-container">
-        <a href="/" class="auth-link">Home</a>
+        <a href="/" class="home-link">Home</a>
     </div>
 </div>
 <h1 id="title" class="text-center">Log in</h1>

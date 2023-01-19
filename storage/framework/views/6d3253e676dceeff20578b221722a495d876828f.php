@@ -1,6 +1,12 @@
 <link href="<?php echo e(asset('css/form.css')); ?>" rel="stylesheet">
 
 <title>Register</title>
+
+<div class="header">
+    <div class="home-container">
+        <a href="/" class="home-link">Home</a>
+    </div>
+</div>
 <h1 id="title" class="text-center">Register</h1>
 <form id="survey-form" method="post" action="/user/create">
     <?php echo csrf_field(); ?>

@@ -10,19 +10,22 @@ class TodoController extends Controller
 {
     public function index()
     {
-//        if (!Auth::check())
-//        {
-//            return redirect('/login');
-//        }
+        if (!Auth::check())
+        {
+            return view('home', [
+                'tasks' => []
+            ]);
+        }
 
         return view('home', [
-            'tasks' => Todo::all()
+            'tasks' => Todo::where('user_id', Auth::user()->id)->get()
         ]);
     }
 
     public function store(Request $request)
     {
-        $task = Todo::create([
+        Todo::create([
+            'user_id' => Auth::user()->id,
             'title' => $request->input('title'),
             'completed' => false
         ]);
